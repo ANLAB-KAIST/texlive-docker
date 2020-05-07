@@ -4,6 +4,7 @@ LABEL maintainer="wsyoon@an.kaist.ac.kr"
 RUN apt-get update -qq &&\
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
       python3-pygments \
+      python3-setuptools \
     && \
     # Clean up
     apt-get autoclean && \
