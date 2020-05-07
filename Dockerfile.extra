@@ -3,7 +3,7 @@ LABEL maintainer="wsyoon@an.kaist.ac.kr"
 
 RUN apt-get update -qq &&\
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-      python-pygments \
+      python3-pygments \
     && \
     # Clean up
     apt-get autoclean && \
