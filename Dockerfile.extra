@@ -1,14 +1,22 @@
 FROM anlabkaist/texlive:base
 LABEL maintainer="wsyoon@an.kaist.ac.kr"
 
+
 RUN apt-get update -qq &&\
-    DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-      python3-pygments \
-      python3-setuptools \
-    && \
-    # Clean up
-    apt-get autoclean && \
-    apt-get autoremove && \
-    rm -rf /var/lib/apt/lists/* \
-           /tmp/* \
-           /var/tmp/* 
+  DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
+  python3-pygments \
+  python3-setuptools \
+  curl \
+  ca-certificates \
+  git \
+  && \
+  # Clean up
+  apt-get autoclean && \
+  apt-get autoremove && \
+  rm -rf /var/lib/apt/lists/* \
+  /tmp/* \
+  /var/tmp/* 
+
+
+ENV HUB_VERSION 2.14.1
+RUN cd / && curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s ${HUB_VERSION}
